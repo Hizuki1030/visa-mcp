@@ -412,41 +412,6 @@
         </div>
     </section>
 
-    <section class="code-example">
-        <div class="container">
-            <div class="section-title">
-                <h2>使用例</h2>
-                <p>VISA-MCPを使用して、オシロスコープから波形データを取得する例</p>
-            </div>
-            
-            <div class="code-block">
-                <pre>
-// クライアント側コード例
-
-// 1. 利用可能な機器を一覧表示
-const devices = await mcp.call("list_instruments");
-console.log("検出された機器:", devices);
-
-// 2. オシロスコープに接続
-const resource = "USB0::0x0957::0x1798::MY12345678::0::INSTR";  // 例: Keysight
-const result = await mcp.call("connect_oscilloscope", {resource});
-console.log("接続結果:", result);
-
-// 3. チャンネル1の波形を取得
-const waveData = await mcp.call("get_waveform", {channel: 1});
-console.log(`波形データ: ${waveData.voltage.length} ポイント`);
-console.log(`時間増分: ${waveData.x_increment} 秒`);
-
-// 4. チャンネル1の周波数を測定
-const freq = await mcp.call("get_measurement", {channel: 1, measurement_type: "freq"});
-console.log(`測定周波数: ${freq.value} Hz`);
-
-// 5. 接続を切断
-await mcp.call("disconnect_oscilloscope");
-                </pre>
-            </div>
-        </div>
-    </section>
 
     <section class="how-it-works" id="how-it-works">
         <div class="container">
@@ -518,7 +483,7 @@ cd visa-mcp
             
             <div class="testimonial-slider">
                 <div class="testimonial">
-                    <p class="testimonial-text">「研究室で複数の測定を自動化するために使用しています。Python経由でオシロスコープを制御できるので、長時間の測定や繰り返し測定が非常に楽になりました。」</p>
+                    <p class="testimonial-text">「研究室で複数の測定を自動化するために使用しています。AI経由でオシロスコープを制御できるので、長時間の測定や繰り返し測定が非常に楽になりました。」</p>
                     <div class="testimonial-author">
                         <div class="author-info">
                             <h4>大学研究室</h4>
@@ -538,7 +503,7 @@ cd visa-mcp
                 </div>
                 
                 <div class="testimonial">
-                    <p class="testimonial-text">「教育現場でこのツールを使うことで、学生たちに実際の測定器の使い方だけでなく、プログラミングを通じた機器制御の概念も教えることができています。」</p>
+                    <p class="testimonial-text">「教育現場でこのツールを使うことで、学生たちに実際の測定器の使い方だけでなく、AIを通じた機器制御の概念も教えることができています。」</p>
                     <div class="testimonial-author">
                         <div class="author-info">
                             <h4>工業高等専門学校</h4>
