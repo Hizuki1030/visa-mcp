@@ -421,28 +421,28 @@
             
             <div class="code-block">
                 <pre>
-# クライアント側コード例
+// クライアント側コード例
 
-# 1. 利用可能な機器を一覧表示
-devices = await mcp.call("list_instruments")
-print("検出された機器:", devices)
+// 1. 利用可能な機器を一覧表示
+const devices = await mcp.call("list_instruments");
+console.log("検出された機器:", devices);
 
-# 2. オシロスコープに接続
-resource = "USB0::0x0957::0x1798::MY12345678::0::INSTR"  # 例: Keysight
-result = await mcp.call("connect_oscilloscope", {"resource": resource})
-print("接続結果:", result)
+// 2. オシロスコープに接続
+const resource = "USB0::0x0957::0x1798::MY12345678::0::INSTR";  // 例: Keysight
+const result = await mcp.call("connect_oscilloscope", {resource});
+console.log("接続結果:", result);
 
-# 3. チャンネル1の波形を取得
-wave_data = await mcp.call("get_waveform", {"channel": 1})
-print(f"波形データ: {len(wave_data['voltage'])} ポイント")
-print(f"時間増分: {wave_data['x_increment']} 秒")
+// 3. チャンネル1の波形を取得
+const waveData = await mcp.call("get_waveform", {channel: 1});
+console.log(`波形データ: ${waveData.voltage.length} ポイント`);
+console.log(`時間増分: ${waveData.x_increment} 秒`);
 
-# 4. チャンネル1の周波数を測定
-freq = await mcp.call("get_measurement", {"channel": 1, "measurement_type": "freq"})
-print(f"測定周波数: {freq['value']} Hz")
+// 4. チャンネル1の周波数を測定
+const freq = await mcp.call("get_measurement", {channel: 1, measurement_type: "freq"});
+console.log(`測定周波数: ${freq.value} Hz`);
 
-# 5. 接続を切断
-await mcp.call("disconnect_oscilloscope")
+// 5. 接続を切断
+await mcp.call("disconnect_oscilloscope");
                 </pre>
             </div>
         </div>
@@ -458,12 +458,12 @@ await mcp.call("disconnect_oscilloscope")
             <ul class="steps">
                 <li class="step-item">
                     <h3 class="step-title">インストール</h3>
-                    <p>GitHubからリポジトリをクローンし、依存関係をインストールします。</p>
+                    <p>GitHubからリポジトリをクローンし、必要な依存関係をインストールします。</p>
                     <div class="code-block">
                         <pre>
 git clone https://github.com/Hizuki1030/visa-mcp.git
 cd visa-mcp
-uv pip install -e .
+# 依存関係のインストール
                         </pre>
                     </div>
                 </li>

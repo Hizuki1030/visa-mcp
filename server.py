@@ -24,7 +24,7 @@ def list_instruments() -> List[Dict[str, str]]:
             try:
                 inst = rm.open_resource(res)
                 # タイムアウトを設定（応答がない場合のハングを防止）
-                inst.timeout = 1000  # 1秒
+                inst.timeout = 500  # 1秒
                 try:
                     idn = inst.query("*IDN?")
                     info["idn"] = idn.strip()
