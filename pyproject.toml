@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "mcp2visa"
+name = "visa-mcp"
 version = "1.0.0"
 description = "Model Context Protocol server for VISA instrument control"
 authors = [{ name = "User" }]
@@ -15,13 +15,13 @@ dependencies = [
 requires-python = ">=3.11"
 
 [project.scripts]
-mcp2visa = "mcp2visa.server:main"
+visa-mcp = "visa-mcp.server:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/mcp2visa"]
+packages = ["src/visa-mcp"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/mcp2visa"]
+include = ["src/visa-mcp"]
 
 [tool.uv]
 dev-dependencies = [
